@@ -28,7 +28,7 @@ public class CombatTagInstakill extends JavaPlugin {
     public Settings settings;
     public final Logger log = Logger.getLogger("Minecraft");
     private HashMap<String, Long> tagged;
-    private static String mainDirectory = "plugins/CombatTag";
+    private static String mainDirectory = "plugins/CombatTagInstakill";
     private static final List<String> SUBCOMMANDS = ImmutableList.of("reload", "command");
     private static final List<String> COMMAND_SUBCOMMANDS = ImmutableList.of("add", "remove");
 
