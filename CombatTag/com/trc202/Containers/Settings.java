@@ -2,52 +2,38 @@ package com.trc202.Containers;
 
 public class Settings {
 	
-	public enum SettingsType {NPC,TIMED,OTHER};
-	
 	private int tagDuration;
 	private boolean debugEnabled;
-	private boolean instaKill;
-	private SettingsType currentMode;
 	private String[] disabledCommands;
 	private String[] disallowedWorlds;
-	private String npcName;
 	private boolean blockEditWhileTagged;
 	private boolean sendMessageWhenTagged;
-	private int npcDespawnTime;
-	private boolean npcDieAfterTime;
-	private boolean droptagonkick;
+	private boolean dropTagOnKick;
 	private String commandMessageTagged;
 	private String commandMessageNotTagged;
 	private String tagMessageDamager;
 	private String tagMessageDamaged;
 	private boolean blockTeleport;
 	private boolean blockEnderPearl;
-	private boolean dontSpawnInWG;
 	private boolean onlyDamagerTagged;
 	private boolean mobTag;
 	private boolean playerTag;
 	private boolean blockCreativeTagging;
 	
 	public Settings(){
-		currentMode = SettingsType.NPC;
-		instaKill = false;
 		tagDuration = 10;
 		debugEnabled = false;
 		disabledCommands = new String[0];
 		disallowedWorlds = new String[0];
-		npcName = "PvpLogger";
 		blockEditWhileTagged = true;
 		sendMessageWhenTagged = false;
-		npcDespawnTime = -1;
-		npcDieAfterTime = false;
-		droptagonkick = true;
+		dropTagOnKick = true;
 		commandMessageTagged = "You are in combat for [time] seconds.";
 		commandMessageNotTagged = "You are not currently in combat!";
 		tagMessageDamager = "You have hit [player]. Type /ct to check your remaining tag time.";
 		tagMessageDamaged = "You have been hit by [player]. Type /ct to check your remaining tag time.";
 		blockTeleport = false;
 		blockEnderPearl = false;
-		dontSpawnInWG = false;
 		onlyDamagerTagged = false;
 		mobTag = false;
 		playerTag = true;
@@ -70,26 +56,14 @@ public class Settings {
 	public int getTagDuration() {
 		return tagDuration;
 	}
-
-	public void setInstaKill(boolean instaKill) {
-		this.instaKill = instaKill;
-	}
-
-	public boolean isInstaKill() {
-		return instaKill;
-	}
 	
 	public void setDropTagonKick(boolean droptagonkick) {
-		this.droptagonkick = droptagonkick;
+		this.dropTagOnKick = droptagonkick;
 	}
 	
 	public boolean dropTagOnKick() {
-		return droptagonkick;
+		return dropTagOnKick;
 	} 
-	
-	public SettingsType getCurrentMode(){
-		return currentMode;
-	}
 
 	public String[] getDisabledCommands() {
 		return disabledCommands;
@@ -107,15 +81,6 @@ public class Settings {
 		return disallowedWorlds;
 	}
 
-	public String getNpcName() {
-		return npcName;
-	}
-
-	public void setNpcName(String npcName) {
-		this.npcName = npcName;
-		
-	}
-
 	public boolean isBlockEditWhileTagged() {
 		return blockEditWhileTagged;
 	}
@@ -130,23 +95,6 @@ public class Settings {
 	
 	public void setSendMessageWhenTagged(boolean sendMessageWhenTagged) {
 		this.sendMessageWhenTagged = sendMessageWhenTagged;
-	}
-
-	public int getNpcDespawnTime() {
-		return npcDespawnTime;
-	}
-	
-	public void setNpcDespawnTime(int npcDespawnTime) {
-		this.npcDespawnTime = npcDespawnTime;
-	}
-
-	public void setNpcDieAfterTime(Boolean npcDieAfterTime) {
-		this.npcDieAfterTime = npcDieAfterTime;
-		
-	}
-	
-	public boolean isNpcDieAfterTime() {
-		return npcDieAfterTime;
 	}
 
 	public void setCommandMessageTagged(String message) {
@@ -172,15 +120,7 @@ public class Settings {
 	public boolean blockTeleport() {
 		return blockTeleport;
 	}
-
-	public void setDontSpawnInWG(boolean dontSpawnInWG) {
-		this.dontSpawnInWG = dontSpawnInWG;
-	}
 	
-	public boolean dontSpawnInWG(){
-		return dontSpawnInWG;
-	}
-
 	public void setTagMessageDamaged(String tagMessageDamaged) {
 		this.tagMessageDamaged = tagMessageDamaged;
 	}

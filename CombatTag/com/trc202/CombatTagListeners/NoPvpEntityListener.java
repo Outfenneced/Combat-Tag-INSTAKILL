@@ -13,7 +13,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 
-import com.topcat.npclib.entity.NPC;
 import com.trc202.CombatTag.CombatTag;
 
 public class NoPvpEntityListener implements Listener{
@@ -43,7 +42,7 @@ public class NoPvpEntityListener implements Listener{
     						return;
     					}
     				}
-	    			onPlayerDamageByPlayerNPCMode(damager,tagged);
+	    			onPlayerDamageByPlayer(damager,tagged);
     			}
     		} else if ((dmgr instanceof LivingEntity) && (e.getEntity() instanceof Player) && plugin.settings.mobTag()){
     			LivingEntity damager = (LivingEntity) dmgr;
@@ -55,7 +54,7 @@ public class NoPvpEntityListener implements Listener{
     						return;
     					}
     				}
-	    			onPlayerDamageByMobNPCMode(damager,tagged);
+	    			onPlayerDamageByMob(damager,tagged);
     			}
     		}
 		}
@@ -63,28 +62,17 @@ public class NoPvpEntityListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onEntityDeath(EntityDeathEvent event){
-		if(plugin.npcm.isNPC(event.getEntity())){
-			onNPCDeath(event.getEntity());
-		}
 		//if Player died with a tag duration, cancel the timeout and remove the data container
-		else if(event.getEntity() instanceof Player){
+		if(event.getEntity() instanceof Player){
 			onPlayerDeath((Player) event.getEntity());
 		}
-	}
-	
-	public void onNPCDeath(Entity entity){
-		String id = plugin.getPlayerName(entity);
-		NPC npc = plugin.npcm.getNPC(id);
-		plugin.updatePlayerData(npc, id);
-		plugin.removeTagged(id);
 	}
 	
 	public void onPlayerDeath(Player deadPlayer){
 		plugin.removeTagged(deadPlayer.getName());
 	}
 	
-	private void onPlayerDamageByPlayerNPCMode(Player damager, Player damaged){
-		if(plugin.npcm.isNPC(damaged)){return;} //If the damaged player is an npc do nothing
+	private void onPlayerDamageByPlayer(Player damager, Player damaged){
 		
 		if(plugin.ctIncompatible.WarArenaHook(damager) && plugin.ctIncompatible.WarArenaHook(damaged)){
 			
@@ -114,8 +102,7 @@ public class NoPvpEntityListener implements Listener{
 		}
 	}
 	
-	private void onPlayerDamageByMobNPCMode(LivingEntity damager, Player damaged) {
-		if(plugin.npcm.isNPC(damaged)){return;} //If the damaged player is an npc do nothing
+	private void onPlayerDamageByMob(LivingEntity damager, Player damaged) {
 		if(damager == null){return;}
 		if(plugin.ctIncompatible.WarArenaHook(damaged)){
 			if(!damaged.hasPermission("combattag.ignoremob")){	
