@@ -1,7 +1,7 @@
-name: CombatTag
-version: 6.1.2
+name: CombatTagInstakill
+version: 1.1.0
 author: cheddar262
-main: com.trc202.CombatTag.CombatTag
+main: com.trc202.CombatTag.CombatTagInstakill
 dev-url: http://dev.bukkit.org/server-mods/combat-tag
 commands:
   CombatTag:

@@ -13,13 +13,13 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 
-import com.trc202.CombatTag.CombatTag;
+import com.trc202.CombatTag.CombatTagInstakill;
 
 public class NoPvpEntityListener implements Listener{
 
-	CombatTag plugin;
+	CombatTagInstakill plugin;
 	
-	public NoPvpEntityListener(CombatTag combatTag){
+	public NoPvpEntityListener(CombatTagInstakill combatTag){
 		this.plugin = combatTag;
 	}
 	@EventHandler(priority = EventPriority.MONITOR)

@@ -7,13 +7,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-import com.trc202.CombatTag.CombatTag;
+import com.trc202.CombatTag.CombatTagInstakill;
 
 public class NoPvpBlockListener implements Listener{
 
-	CombatTag plugin;
+	CombatTagInstakill plugin;
 	
-	public NoPvpBlockListener(CombatTag combatTag){
+	public NoPvpBlockListener(CombatTagInstakill combatTag){
 		this.plugin = combatTag;
 	}
 	

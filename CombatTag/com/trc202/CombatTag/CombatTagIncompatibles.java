@@ -17,9 +17,9 @@ import com.tommytony.war.Warzone;
 
 public class CombatTagIncompatibles {
 
-	CombatTag plugin;
+	CombatTagInstakill plugin;
 
-	public CombatTagIncompatibles(CombatTag combatTag){
+	public CombatTagIncompatibles(CombatTagInstakill combatTag){
 		this.plugin = combatTag;
 	}
 
