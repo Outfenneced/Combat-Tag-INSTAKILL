@@ -34,10 +34,10 @@ public class NoPvpPlayerListener implements Listener {
 			if (plugin.isInCombat(quitPlr.getName())) {
 				//Player has logged out before the pvp battle is considered over by the plugin
 				if (plugin.isDebugEnabled()) {
-					plugin.log.info("[CombatTag] " + quitPlr.getName() + " has logged of during pvp!");
+					plugin.log.info("[CombatTag] " + quitPlr.getName() + " has logged out during pvp!");
+					plugin.log.info("[CombatTag] " + quitPlr.getName() + " has been instakilled!");
 				}
 				alertPlayers(quitPlr);
-				plugin.log.info("[CombatTag] " + quitPlr.getName() + " has been instakilled!");
 				quitPlr.damage(1000L);
 				plugin.removeTagged(quitPlr.getName());
 			}
