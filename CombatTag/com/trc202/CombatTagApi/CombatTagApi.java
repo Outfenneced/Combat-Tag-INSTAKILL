@@ -2,13 +2,13 @@ package com.trc202.CombatTagApi;
 
 import org.bukkit.entity.Player;
 
-import com.trc202.CombatTag.CombatTagInstakill;
+import com.trc202.CombatTag.CombatTag;
 
 public class CombatTagApi {
 	
-	private CombatTagInstakill plugin;
+	private CombatTag plugin;
 	
-	public CombatTagApi(CombatTagInstakill plugin){
+	public CombatTagApi(CombatTag plugin){
 		this.plugin = plugin;
 	}
 

@@ -15,14 +15,14 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 
-import com.trc202.CombatTag.CombatTagInstakill;
+import com.trc202.CombatTag.CombatTag;
 
 public class NoPvpPlayerListener implements Listener {
-	private final CombatTagInstakill plugin;
+	private final CombatTag plugin;
 
 	public NoPvpEntityListener entityListener;
 
-	public NoPvpPlayerListener(CombatTagInstakill instance) {
+	public NoPvpPlayerListener(CombatTag instance) {
 		plugin = instance;
 	}
 

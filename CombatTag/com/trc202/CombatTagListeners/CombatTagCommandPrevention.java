@@ -7,14 +7,14 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-import com.trc202.CombatTag.CombatTagInstakill;
+import com.trc202.CombatTag.CombatTag;
 
 
 public class CombatTagCommandPrevention implements Listener{
 	
-	CombatTagInstakill plugin;
+	CombatTag plugin;
 	
-	public CombatTagCommandPrevention(CombatTagInstakill plugin){
+	public CombatTagCommandPrevention(CombatTag plugin){
 		this.plugin = plugin;
 	}
 	

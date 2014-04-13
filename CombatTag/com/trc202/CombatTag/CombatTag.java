@@ -23,7 +23,7 @@ import com.trc202.CombatTagListeners.NoPvpPlayerListener;
 import com.trc202.Containers.Settings;
 import com.trc202.helpers.SettingsHelper;
 
-public class CombatTagInstakill extends JavaPlugin {
+public class CombatTag extends JavaPlugin {
     private SettingsHelper settingsHelper;
     private File settingsFile;
     public Settings settings;
@@ -40,7 +40,7 @@ public class CombatTagInstakill extends JavaPlugin {
     private final NoPvpBlockListener blockListener = new NoPvpBlockListener(this);
     private final CombatTagCommandPrevention commandPreventer = new CombatTagCommandPrevention(this);
 
-    public CombatTagInstakill() {
+    public CombatTag() {
         settings = new Settings();
         new File(mainDirectory).mkdirs();
         settingsFile = new File(mainDirectory + File.separator + "settings.prop");
