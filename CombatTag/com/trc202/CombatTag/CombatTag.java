@@ -20,8 +20,9 @@ import com.trc202.CombatTagListeners.CombatTagCommandPrevention;
 import com.trc202.CombatTagListeners.NoPvpBlockListener;
 import com.trc202.CombatTagListeners.NoPvpEntityListener;
 import com.trc202.CombatTagListeners.NoPvpPlayerListener;
-import com.trc202.Containers.Settings;
+import com.trc202.helpers.Settings;
 import com.trc202.helpers.SettingsHelper;
+import com.trc202.helpers.SettingsLoader;
 
 public class CombatTag extends JavaPlugin {
     private SettingsHelper settingsHelper;

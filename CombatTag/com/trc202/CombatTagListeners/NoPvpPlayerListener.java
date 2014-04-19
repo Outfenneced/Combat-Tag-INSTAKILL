@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 
 import com.trc202.CombatTag.CombatTag;
 
@@ -83,7 +84,7 @@ public class NoPvpPlayerListener implements Listener {
 		if (event.isCancelled()) {
 			return;
 		}
-		if (plugin.settings.blockTeleport() == true && plugin.isInCombat(event.getPlayer().getUniqueId()) && plugin.ctIncompatible.notInArena(event.getPlayer())) {
+		if (plugin.settings.blockTeleport() && plugin.isInCombat(event.getPlayer().getUniqueId()) && plugin.ctIncompatible.notInArena(event.getPlayer())) {
 			TeleportCause cause = event.getCause();
 			if ((cause == TeleportCause.PLUGIN || cause == TeleportCause.COMMAND)) { 
 				if(event.getPlayer().getWorld() != event.getTo().getWorld()){
@@ -96,6 +97,17 @@ public class NoPvpPlayerListener implements Listener {
 			}
 		}
 	}
+	
+	@EventHandler(priority = EventPriority.HIGHEST)
+	public void onPlayerToggleFly(PlayerToggleFlightEvent event){
+		Player player = event.getPlayer();
+		if(plugin.settings.blockFly() && plugin.isInCombat(player.getUniqueId()) && event.isFlying()){
+			player.sendMessage(ChatColor.RED + "[CombatTag] You can't fly while tagged!");
+			player.setFlying(false);
+			event.setCancelled(true);
+		}
+	}
+
 
 	private void alertPlayers(Player quitPlr) {
 		for(Player player: plugin.getServer().getOnlinePlayers()){

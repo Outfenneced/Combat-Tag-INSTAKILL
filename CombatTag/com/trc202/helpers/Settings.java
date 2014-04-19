@@ -1,4 +1,4 @@
-package com.trc202.Containers;
+package com.trc202.helpers;
 
 public class Settings {
 	
@@ -19,6 +19,7 @@ public class Settings {
 	private boolean mobTag;
 	private boolean playerTag;
 	private boolean blockCreativeTagging;
+	private boolean blockFly;
 	
 	public Settings(){
 		tagDuration = 10;
@@ -38,7 +39,7 @@ public class Settings {
 		mobTag = false;
 		playerTag = true;
 		blockCreativeTagging = true;
-		
+		blockFly = false;
 	}
 
 	public void setDebugEnabled(boolean debugEnabled) {
@@ -175,5 +176,13 @@ public class Settings {
 
 	public boolean blockCreativeTagging() {
 		return blockCreativeTagging;
+	}
+	
+	public void setBlockFly(boolean blockFly) {
+		this.blockFly = blockFly;
+	}
+	
+	public boolean blockFly() {
+		return blockFly;
 	}
 }
