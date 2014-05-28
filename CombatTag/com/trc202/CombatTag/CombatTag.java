@@ -63,6 +63,7 @@ public class CombatTag extends JavaPlugin {
         pm.registerEvents(entityListener, this);
         pm.registerEvents(commandPreventer, this);
         pm.registerEvents(blockListener, this);
+        ctIncompatible.startup(pm);
         log.info("[" + getDescription().getName() + "]" + " has loaded with a tag time of " + settings.getTagDuration() + " seconds");
     }
 

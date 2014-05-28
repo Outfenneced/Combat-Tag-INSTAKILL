@@ -58,7 +58,7 @@ public class NoPvpEntityListener implements Listener{
 		plugin.removeTagged(deadPlayer.getUniqueId());
 	}
 
-	private void onPlayerDamageByPlayer(Player damager, Player damaged){
+	public void onPlayerDamageByPlayer(Player damager, Player damaged){
 
 		if(plugin.ctIncompatible.WarArenaHook(damager) && plugin.ctIncompatible.WarArenaHook(damaged)){
 			if(!damager.hasPermission("combattag.ignore")){	
@@ -111,7 +111,7 @@ public class NoPvpEntityListener implements Listener{
 	}
 
 	
-	private boolean disallowedWorld(String worldName){
+	public boolean disallowedWorld(String worldName){
 		for(String disallowedWorld : plugin.settings.getDisallowedWorlds()){
 			if(worldName.equalsIgnoreCase(disallowedWorld)){
 				//Skip this tag the world they are in is not to be tracked by combat tag
